@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messenger Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <!-- User info -->
+            <div class="sidebar-header">
+                <div class="user-info" onclick="window.location.href='/profile'" style="cursor: pointer;">
+                    <img id="current-user-avatar" alt="Avatar" class="avatar">
+                    <div>
+                        <h3 id="current-user-name"></h3>
+                        <span id="current-user-status" class="status online"></span>
+                    </div>
+                </div>
+                <button class="btn-logout" onclick="logout()" title="Logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                </button>
+            </div>
+
+            <!-- Search section -->
+            <div class="search-section">
+                <div class="search-box">
+                    <input type="text" id="search-input" placeholder="Search username or email...">
+                    <button id="search-button">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+                <div id="search-results" class="search-results">
+                    <!-- Search results will appear here -->
+                </div>
+            </div>
+
+            <!-- Contacts section -->
+            <div class="contacts-section">
+                <div class="section-header">
+                    <h3 class="section-title">
+                        <i class="fas fa-users"></i> Contacts
+                        <span id="contacts-count" class="badge">0</span>
+                    </h3>
+                    <button class="btn-refresh" onclick="loadContacts()" title="Refresh contacts">
+                        <i class="fas fa-sync-alt"></i>
+                    </button>
+                </div>
+                <div class="contacts-list" id="contacts-list">
+                    <!-- Contacts will be loaded here -->
+                    <div class="no-contacts" id="no-contacts">
+                        <i class="fas fa-user-plus fa-2x"></i>
+                        <p>No contacts yet</p>
+                        <small>Search users to start chatting</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chat area -->
+        <div class="chat-area">
+            <!-- Chat header -->
+            <div class="chat-header" id="chat-header">
+                <div class="chat-partner-info" id="chat-partner-info">
+                    <div class="no-chat-selected">
+                        <i class="fas fa-comment-dots fa-2x"></i>
+                        <h3>Select a contact to start chatting</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Messages container -->
+            <div class="messages-container" id="messages-container">
+                <div class="welcome-message">
+                    <i class="fas fa-comments fa-4x"></i>
+                    <h2>Welcome to Messenger</h2>
+                    <p>Select a contact from the sidebar or search for users to start messaging</p>
+                </div>
+            </div>
+
+            <!-- Message input (initially hidden) -->
+            <div class="message-input" id="message-input-container" style="display: none;">
+                <div class="input-wrapper">
+                    <input type="text" id="message-input" placeholder="Type a message..." disabled>
+                    <div class="input-actions">
+                        <!-- File upload button -->
+                        <button class="input-action-btn" id="file-upload-btn" title="Upload file">
+                            <i class="fas fa-paperclip"></i>
+                        </button>
+                        <input type="file" id="file-input" class="hidden" accept="image/*,audio/*,.pdf,.doc,.docx,.txt">
+                        
+                        <!-- Voice message button -->
+                        <button class="input-action-btn" id="voice-message-btn" title="Voice message">
+                            <i class="fas fa-microphone"></i>
+                        </button>
+                        
+                        <!-- Send button -->
+                        <button id="send-button" disabled>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="typing-indicator" id="typing-indicator" style="display: none;">
+                    <span id="typing-text"></span>
+                </div>
+            </div>
+            
+            <!-- Call modal (hidden by default) -->
+            <div class="call-modal" id="call-modal" style="display: none;">
+                <div class="call-container">
+                    <div class="call-header">
+                        <h3 id="call-title">Call</h3>
+                        <button class="close-call" onclick="endCall()">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="call-content">
+                        <div class="video-container">
+                            <div id="call-status">Connecting...</div>
+                            <video id="local-video" autoplay playsinline muted style="display: none;"></video>
+                            <video id="remote-video" autoplay playsinline style="display: none;"></video>
+                        </div>
+                        <div class="call-controls">
+                            <button class="call-control-btn mute-btn" onclick="toggleMute()">
+                                <i class="fas fa-microphone"></i>
+                            </button>
+                            <button class="call-control-btn video-btn" onclick="toggleVideo()" style="display: none;">
+                                <i class="fas fa-video"></i>
+                            </button>
+                            <button class="call-control-btn end-btn" onclick="endCall()">
+                                <i class="fas fa-phone-slash"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Socket.io client library -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
