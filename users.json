@@ -1,0 +1,94 @@
+{
+  "users": [
+    {
+      "id": "3fd87350-b626-48a5-b574-8825364e1f16",
+      "username": "Cyber",
+      "email": "uzbbrave@gmail.com",
+      "password": "$2a$10$smVK/jyKwl44O95.GXVNseATiudh.AixbvlzShM2EhyH9.zeB2fjS",
+      "avatar": "/uploads/images/6219a2ae-9331-4cd7-a3eb-b193bfca2835-3.jpg",
+      "status": "online",
+      "createdAt": "2025-12-28T04:07:48.024Z",
+      "lastSeen": "2025-12-30T10:28:10.402Z"
+    },
+    {
+      "id": "38066c22-c64a-4054-ad62-f37cf2f832db",
+      "username": "Brave",
+      "email": "brave.uzb.01@gmail.com",
+      "password": "$2a$10$ig5MY1YKqCzoLPlXzyCUcuOWKwFi2qu.CsD5Zl5EUJrxTQtbVl2Nu",
+      "avatar": "https://ui-avatars.com/api/?name=Brave&background=random",
+      "status": "online",
+      "createdAt": "2025-12-28T04:10:52.016Z",
+      "lastSeen": "2025-12-29T15:55:23.185Z",
+      "profile": {
+        "bio": "I'm the best",
+        "phone": "+998 88 008 45 44",
+        "location": "Bukhara",
+        "website": "",
+        "visibility": {
+          "onlineStatus": "public",
+          "lastSeen": "public",
+          "profileInfo": "public",
+          "avatar": "public"
+        },
+        "notifications": {
+          "message": false,
+          "call": true,
+          "online": false,
+          "sound": true,
+          "vibration": true
+        },
+        "theme": {
+          "mode": "dark",
+          "primaryColor": "#667eea",
+          "backgroundColor": "#f8f9fa",
+          "textColor": "#212529"
+        },
+        "privacy": {
+          "showTyping": true,
+          "readReceipts": true,
+          "groups": "everyone"
+        }
+      }
+    },
+    {
+      "id": "ba1c1680-02c4-4fb2-9650-7e5718d59e9e",
+      "username": "Sarvarbek",
+      "email": "j81305361@gmail.com",
+      "password": "$2a$10$pfy3.sFZOwnVI31s..fkDumvDQMrCMN/ypOS3H.7qxQyTQjz2EmOe",
+      "avatar": "/uploads/images/9ccee402-5830-4cbe-8a74-fa4b8b5ca8ca-132.jpg",
+      "status": "offline",
+      "lastSeen": "2025-12-30T06:37:51.443Z",
+      "createdAt": "2025-12-28T09:22:05.449Z",
+      "profile": {
+        "bio": "I'm the best",
+        "phone": "+998 88 008 45 44",
+        "location": "Bukhara",
+        "website": "",
+        "visibility": {
+          "onlineStatus": "private",
+          "lastSeen": "public",
+          "profileInfo": "private",
+          "avatar": "private"
+        },
+        "notifications": {
+          "message": true,
+          "call": true,
+          "online": true,
+          "sound": true,
+          "vibration": true
+        },
+        "theme": {
+          "mode": "dark",
+          "primaryColor": "#17a2b8",
+          "backgroundColor": "#ffffff",
+          "textColor": "#333333"
+        },
+        "privacy": {
+          "showTyping": false,
+          "readReceipts": true,
+          "groups": "everyone"
+        }
+      }
+    }
+  ]
+}
